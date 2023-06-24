@@ -2,22 +2,19 @@
 <!-- Copyright (C) MuleSoft, Inc. All rights reserved. http://www.mulesoft.com The software in this package is published under the terms of the 
   Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License, a copy of which has been included with this distribution 
   in the LICENSE.txt file. -->
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <!-- students: replace with your AP org ID, must be hardcode not dynamic for Exchange -->
   <!-- mvn deploy -f pom.xml -Pdeploy-to-exchange-v3  -->
   <!-- first,follow by -->
   <!-- parent-pom -->
-  <groupId>a6935425-36ba-4172-8b12-6b1aa4672533</groupId>
+  <groupId>706f4d0a-e4a3-40fb-8365-ae5ac1f0a8d7</groupId>
   <artifactId>bom</artifactId>
   <!-- Exchange demands a name for deployment -->
   <name>bom</name>
   <!-- Exchange NON-SNAPSHOT version for deployment -->
   <version>1.0.0</version>
-
   <packaging>pom</packaging>
   <!-- IMPORTANT: Due to a limitation in MUnit, this file must be installed into the local Maven repo after every change: -->
   <!-- mvn -f bom/pom.xml install:install-file -Dpom.xml -DpomFile=pom.xml -->
@@ -92,33 +89,36 @@
     <email.connector.version>1.7.2</email.connector.version>
     <tita.unit.version>2.7.0</tita.unit.version>
     <tracing.module.version>1.0.0</tracing.module.version>
+    <mule.oauth2.provider.module.version>1.0.10</mule.oauth2.provider.module.version>
     <!-- 3rd party lib versions -->
     <postgresql.version>42.6.0</postgresql.version>
     <h2.version>2.1.214</h2.version>
     <!-- versions and properties related to project artifacts: -->
     <!-- AnyAirline Exchange Maven repo -->
-    <aa.ap.orgid>a63e6d25-8aaf-4512-b36d-d91b90a55c4a</aa.ap.orgid>
-    <aa.exchange.repo.id>anypoint-exchange-${aa.ap.orgid}</aa.exchange.repo.id>
+    <!-- <aa.ap.orgid>a63e6d25-8aaf-4512-b36d-d91b90a55c4a</aa.ap.orgid> -->
+    <!-- <aa.exchange.repo.id>anypoint-exchange-${aa.ap.orgid}</aa.exchange.repo.id> -->
     <!-- students: update with your own AP org ID -->
-    <student.deployment.ap.orgid>a6935425-36ba-4172-8b12-6b1aa4672533</student.deployment.ap.orgid>
+    <student.deployment.ap.orgid>706f4d0a-e4a3-40fb-8365-ae5ac1f0a8d7</student.deployment.ap.orgid>
     <!-- library-style Mule plugins -->
-    <apps-common.version>1.0.0</apps-common.version>
+    <!-- <apps-common.version>1.0.0</apps-common.version> -->
 
     <!-- Mule extensions/modules/connectors -->
-
     <resilience-mule-extension.version>1.0.0-SNAPSHOT</resilience-mule-extension.version>
 
     <!-- raw info for all API specifications that any Mule app depends on: -->
     <!-- EAPIs -->
-    <mobile-check-in-eapi.groupId>${student.deployment.ap.orgid}</mobile-check-in-eapi.groupId>
+    <!-- <mobile-check-in-eapi.groupId>${student.deployment.ap.orgid}</mobile-check-in-eapi.groupId>
     <mobile-check-in-eapi.artifactId>mobile-check-in-eapi</mobile-check-in-eapi.artifactId>
-    <mobile-check-in-eapi.version>1.0.4</mobile-check-in-eapi.version>
+    <mobile-check-in-eapi.version>1.0.4</mobile-check-in-eapi.version> -->
     <!-- PAPIs -->
     <check-in-papi.groupId>${student.deployment.ap.orgid}</check-in-papi.groupId>
-    <check-in-papi.artifactId>check-in-papi</check-in-papi.artifactId>
-    <check-in-papi.version>1.1.2</check-in-papi.version>
+    <check-in-papi.artifactId>apprd-check-in-papi</check-in-papi.artifactId>
+    <check-in-papi.version>1.0.0</check-in-papi.version>
+    <mule.oauth2.provider.groupId>${student.deployment.ap.orgid}</mule.oauth2.provider.groupId>
+    <mule.oauth2.provider.artifactId>mule-oauth2-provider</mule.oauth2.provider.artifactId>
+    <mule.oauth2.provider.version>1.0.0</mule.oauth2.provider.version>
     <!-- SAPIs -->
-    <flights-management-sapi.groupId>${student.deployment.ap.orgid}</flights-management-sapi.groupId>
+    <!-- <flights-management-sapi.groupId>${student.deployment.ap.orgid}</flights-management-sapi.groupId>
     <flights-management-sapi.artifactId>flights-management-sapi</flights-management-sapi.artifactId>
     <flights-management-sapi.version>1.1.4</flights-management-sapi.version>
     <passenger-data-sapi.groupId>${student.deployment.ap.orgid}</passenger-data-sapi.groupId>
@@ -126,7 +126,7 @@
     <passenger-data-sapi.version>1.1.4</passenger-data-sapi.version>
     <paypal-sapi.groupId>${student.deployment.ap.orgid}</paypal-sapi.groupId>
     <paypal-sapi.artifactId>paypal-sapi</paypal-sapi.artifactId>
-    <paypal-sapi.version>1.2.2</paypal-sapi.version>
+    <paypal-sapi.version>1.2.2</paypal-sapi.version> -->
   </properties>
   <build>
     <pluginManagement>
@@ -339,6 +339,12 @@
       </dependency>
       <!-- standard Mule dependencies: modules -->
       <dependency>
+        <groupId>com.mulesoft.modules</groupId>
+        <artifactId>mule-oauth2-provider-module</artifactId>
+        <version>${mule.oauth2.provider.module.version}</version>
+        <classifier>mule-plugin</classifier>
+      </dependency>
+      <dependency>
         <groupId>org.mule.modules</groupId>
         <artifactId>mule-apikit-module</artifactId>
         <version>${apikit.version}</version>
@@ -474,13 +480,13 @@
       </dependency>
       <!-- dependencies provided by this project -->
       <!-- library-style Mule plugins -->
-      <dependency>
-        <!-- students: replace with your AP org ID -->
+       <!-- students: replace with your AP org ID -->
+      <!-- <dependency>
         <groupId>${student.deployment.ap.orgid}</groupId>
         <artifactId>apps-common</artifactId>
         <version>${apps-common.version}</version>
         <classifier>mule-plugin</classifier>
-      </dependency>
+      </dependency> -->
       <!-- Mule extensions/modules/connectors -->
       <dependency>
         <groupId>${student.deployment.ap.orgid}</groupId>
@@ -489,13 +495,13 @@
         <classifier>mule-plugin</classifier>
       </dependency>
       <!-- EAPIs -->
-      <dependency>
+      <!-- <dependency>
         <groupId>${mobile-check-in-eapi.groupId}</groupId>
         <artifactId>${mobile-check-in-eapi.artifactId}</artifactId>
         <version>${mobile-check-in-eapi.version}</version>
         <classifier>raml</classifier>
         <type>zip</type>
-      </dependency>
+      </dependency> -->
       <!-- PAPIs -->
       <dependency>
         <groupId>${check-in-papi.groupId}</groupId>
@@ -505,34 +511,41 @@
         <type>zip</type>
       </dependency>
       <dependency>
+        <groupId>${mule.oauth2.provider.groupId}</groupId>
+        <artifactId>${mule.oauth2.provider.artifactId}</artifactId>
+        <version>${mule.oauth2.provider.version}</version>
+        <classifier>raml</classifier>
+        <type>zip</type>
+      </dependency>
+      <!-- <dependency>
         <groupId>${check-in-papi.groupId}</groupId>
         <artifactId>${check-in-papi.artifactId}</artifactId>
         <version>${check-in-papi.version}</version>
         <classifier>oas</classifier>
         <type>zip</type>
-      </dependency>
+      </dependency> -->
       <!-- SAPIs -->
-      <dependency>
+      <!-- <dependency>
         <groupId>${flights-management-sapi.groupId}</groupId>
         <artifactId>${flights-management-sapi.artifactId}</artifactId>
         <version>${flights-management-sapi.version}</version>
         <classifier>raml</classifier>
         <type>zip</type>
-      </dependency>
-      <dependency>
+      </dependency> -->
+      <!-- <dependency>
         <groupId>${passenger-data-sapi.groupId}</groupId>
         <artifactId>${passenger-data-sapi.artifactId}</artifactId>
         <version>${passenger-data-sapi.version}</version>
         <classifier>raml</classifier>
         <type>zip</type>
-      </dependency>
-      <dependency>
+      </dependency> -->
+      <!-- <dependency>
         <groupId>${paypal-sapi.groupId}</groupId>
         <artifactId>${paypal-sapi.artifactId}</artifactId>
         <version>${paypal-sapi.version}</version>
         <classifier>raml</classifier>
         <type>zip</type>
-      </dependency>
+      </dependency> -->
     </dependencies>
   </dependencyManagement>
   <repositories>
@@ -542,12 +555,12 @@
       <name>Anypoint Exchange</name>
       <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
     </repository>
-    <repository>
-      <!-- Anypoint Exchange repository of the AnyAirline Anypoint Platform organization, requires authentication -->
+    <!-- Anypoint Exchange repository of the AnyAirline Anypoint Platform organization, requires authentication -->
+    <!-- <repository>
       <id>${aa.exchange.repo.id}</id>
       <name>AnyAirline Anypoint Exchange</name>
       <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-    </repository>
+    </repository> -->
     <repository>
       <!-- MuleSoft repository for publicly accessible artifacts, does not require authentication -->
       <id>mulesoft-releases</id>
@@ -586,7 +599,7 @@
   <distributionManagement>
     <repository>
       <id>anypoint-exchange-v3-student-deployment</id>
-      <name>AnyAirline Anypoint Exchange</name>
+      <name>Corporate Anypoint Exchange</name>
       <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${student.deployment.ap.orgid}/maven</url>
       <layout>default</layout>
     </repository>
