@@ -14,14 +14,14 @@
   <!-- Exchange demands a name for deployment -->
   <name>bom</name>
   <!-- Exchange NON-SNAPSHOT version for deployment -->
-  <version>${ap.exchange.version}</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
   <!-- IMPORTANT: Due to a limitation in MUnit, this file must be installed into the local Maven repo after every change: -->
   <!-- mvn -f bom/pom.xml install:install-file -Dpom.xml -DpomFile=pom.xml -->
   <properties>
     <!-- Not explicitly used but needed for deployment to Exchange, otherwise Exchange cannot determine the asset type -->
     <type>custom</type>
-    <ap.exchange.version>${ap.exchange.version}</ap.exchange.version>
+    <!-- <ap.exchange.version>${ap.exchange.version}</ap.exchange.version> -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!-- Java version -->
