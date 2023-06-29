@@ -18,22 +18,6 @@
   <packaging>pom</packaging>
   <!-- IMPORTANT: Due to a limitation in MUnit, this file must be installed into the local Maven repo after every change: -->
   <!-- mvn -f bom/pom.xml install:install-file -Dpom.xml -DpomFile=pom.xml -->
-  <organization>
-    <name>MuleSoft Training</name>
-    <url>https://training.mulesoft.com/</url>
-  </organization>
-  <scm>
-    <url>https://github.com/mulesoft-consulting/training-APDevLevel2</url>
-    <connection>scm:git:https://github.com/mulesoft-consulting/training-APDevLevel2.git</connection>
-    <developerConnection>scm:git:https://github.com/mulesoft-consulting/training-APDevLevel2.git</developerConnection>
-  </scm>
-  <licenses>
-    <license>
-      <name>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</name>
-      <url>https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode</url>
-      <distribution>manual</distribution>
-    </license>
-  </licenses>
   <properties>
     <!-- Not explicitly used but needed for deployment to Exchange, otherwise Exchange cannot determine the asset type -->
     <type>custom</type>
