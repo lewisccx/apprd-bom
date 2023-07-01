@@ -10,11 +10,11 @@
   <!-- first,follow by -->
   <!-- parent-pom -->
   <groupId>706f4d0a-e4a3-40fb-8365-ae5ac1f0a8d7</groupId>
-  <artifactId>bom</artifactId>
+  <artifactId>apprd-bom</artifactId>
   <!-- Exchange demands a name for deployment -->
-  <name>bom</name>
+  <name>apprd-bom</name>
   <!-- Exchange NON-SNAPSHOT version for deployment -->
-  <version>1.0.1</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <!-- IMPORTANT: Due to a limitation in MUnit, this file must be installed into the local Maven repo after every change: -->
   <!-- mvn -f bom/pom.xml install:install-file -Dpom.xml -DpomFile=pom.xml -->
