@@ -273,6 +273,7 @@
                 </goals>
               </execution>
             </executions>
+            <inherited>false</inherited>
           </plugin>
         </plugins>
       </build>
