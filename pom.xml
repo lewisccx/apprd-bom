@@ -583,10 +583,6 @@
     </pluginRepository>
   </pluginRepositories>
   <distributionManagement>
-    <snapshotRepository>
-      <id>nexus-snapshots</id>
-      <url>http://10.0.2.2:8081/repository/apprd-maven-snapshots/</url>
-    </snapshotRepository>
     <repository>
       <id>anypoint-exchange-v3-student-deployment</id>
       <name>Corporate Anypoint Exchange</name>
